@@ -1,0 +1,16 @@
+*{
+    text-align: center;
+}
+form{
+    background-color: thistle;
+    padding: 15px;
+}
+#part-2-container{
+    background-color: gainsboro;
+    border: 2px solid black;
+}
+#part-1{
+  background-color: seashell;
+  margin: auto;
+  width: 30%;
+}
