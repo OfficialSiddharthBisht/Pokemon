@@ -29,13 +29,40 @@ function displayData(data){
     localStorage.setItem('pArr',JSON.stringify(pArr));
 }
 
-let pokemonName = document.getElementsByTagName("form");
-pokemonName.addEventListener('submit',(eventt)=>{
+
+document.getElementById("form").addEventListener('submit',(eventt)=>{
     eventt.preventDefault();
     let name = document.getElementById("name").value;
     searchPokemon(name);
 })
 
 function searchPokemon(name){
-    console.log(name);
+    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    .then(response=>response.json())
+    .then(response=>displaySearched(response))
+}
+/*
+id
+name (pokemon name)
+height
+weight
+abilities ( just the names of all abilities of pokemon separated by commas )
+moves ( just the names of all moves of pokemon separated by commas )
+*/
+function displaySearched(pok){
+    let container = document.getElementById("part-2-container");
+    container.innerText = "";
+    let baseExperience = document.createElement("h3");
+    let name = document.createElement("h3");
+    let height = document.createElement("h3");
+    let weight = document.createElement("h3");
+    let abilities = document.createElement("h3");
+    let moves = document.createElement("h3");
+    name.innerText = "Pokemon Name :" + pok.forms[0].name;
+    height.innerText = "Height : " + pok.height;
+    weight.innerText = "Weight : " + pok.weight;
+    abilities.innerText = "Ability : " + pok.abilities[1].ability.name;
+    baseExperience.innerText = "Base Experience :"+ pok.base_experience;
+    moves.innerText = "Moves :"+ pok.moves[0].move.name;
+    container.append(name,baseExperience,height,abilities,moves);
 }
