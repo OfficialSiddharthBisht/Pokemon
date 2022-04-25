@@ -1,5 +1,5 @@
 let part1 = document.getElementById("part-1");
-let url = "https://pokeapi.co/api/v2/ability/?limit=20&offset=20";
+let url = "https://pokeapi.co/api/v2/ability/?limit=20&offset=20/pokemon";
 let pArr;
 if(localStorage.getItem('pArr')== null){
     pArr = [];

@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
 *{
+    font-family: 'Noto Sans', sans-serif;
     text-align: center;
+}
+h1{
+    color:dimgray;
 }
 form{
     background-color: thistle;
